@@ -38,7 +38,7 @@ namespace PaymentWeb.Areas.Payment.Controllers
 
             PaymentDetail payment = new PaymentDetail
             {
-                Id = (int)model.id,
+                id = (int)model.id,
                 cardOwnerName = model.cardOwnerName,
                 cardNo = model.cardNo,
                 expireDate = model.expireDate,

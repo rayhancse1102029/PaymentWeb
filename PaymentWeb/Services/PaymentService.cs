@@ -21,7 +21,7 @@ namespace PaymentWeb.Services
 
         public async Task<bool> SavePaymentDetail(PaymentDetail paymentDetail)
         {
-            if (paymentDetail.Id != 0)
+            if (paymentDetail.id != 0)
             {
                 _context.PaymentDetails.Update(paymentDetail);
 

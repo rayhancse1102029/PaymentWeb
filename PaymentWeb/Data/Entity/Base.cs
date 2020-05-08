@@ -11,7 +11,7 @@ namespace PaymentWeb.Data.Entity
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int id { get; set; }
         [DefaultValue(0)]
         public int? isDelete { get; set; }
 
