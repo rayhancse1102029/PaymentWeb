@@ -14,10 +14,8 @@
 
 
   <ItemGroup>
-    <Folder Include="Areas\Payment\Controllers\" />
     <Folder Include="Areas\Payment\Data\" />
     <Folder Include="Areas\Payment\Models\" />
-    <Folder Include="Areas\Payment\Views\" />
   </ItemGroup>
 
 </Project>
