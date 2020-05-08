@@ -22,7 +22,7 @@ namespace PaymentWeb.Data
             this._httpContextAccessor = _httpContextAccessor;
         }
 
-        public DbSet<PaymentDetail> PaymentDetails { get; set; }
+        public DbSet<PaymentDetail> PaymentDetail { get; set; }
 
         #region Settings Configs
         public override int SaveChanges()
