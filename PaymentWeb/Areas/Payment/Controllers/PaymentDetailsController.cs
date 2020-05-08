@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using PaymentWeb.Areas.Payment.Models;
 using PaymentWeb.Data;
+using PaymentWeb.Data.Entity;
 using PaymentWeb.Services.Interfaces;
 
 namespace PaymentWeb.Areas.Payment.Controllers
@@ -20,30 +22,29 @@ namespace PaymentWeb.Areas.Payment.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            UnitViewModel model = new UnitViewModel
+            PaymentDetailsViewModel model = new PaymentDetailsViewModel
             {
-                units = await unitService.GetAllUnit()
+                paymentDetails = await _paymentService.GetAllPaymentDetail()
             };
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(UnitViewModel model)
+        public async Task<IActionResult> Index(PaymentDetailsViewModel model)
         {
             var result = "error";
 
-            Unit unit = new Unit
+            PaymentDetail payment = new PaymentDetail
             {
-                Id = model.Id,
-                unitName = model.unitName,
-                shortOrder = model.shortOrder,
-                description = model.description,
-                createdAt = DateTime.Now,
-                createdBy = User.Identity.Name
+                Id = (int)model.id,
+                cardOwnerName = model.cardOwnerName,
+                cardNo = model.cardNo,
+                expireDate = model.expireDate,
+                cvv = model.cvv
             };
 
-            bool data = await unitService.SaveUnit(unit);
+            bool data = await _paymentService.SavePaymentDetail(payment);
 
             if (data == true)
             {
