@@ -22,6 +22,7 @@ namespace PaymentWeb.Data.Entity
         [Required]
         [StringLength(20)]
         public string cvv { get; set; }
+
     }
 
 }
