@@ -4,24 +4,13 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PaymentWeb.Data.Entity
+namespace PaymentWeb.Areas.Payment.Models
 {
-    public class PaymentDetail : Base
+    public class PymentDetailsViewModel
     {
-        [Required]
-        [StringLength(30)]
         public string cardOwnerName { get; set; }
-
-        [Required]
-        [StringLength(30)]
         public string cardNo { get; set; }
-
-        [Required]
         public DateTime? expireDate { get; set; }
-
-        [Required]
-        [StringLength(20)]
         public string cvv { get; set; }
     }
-
 }

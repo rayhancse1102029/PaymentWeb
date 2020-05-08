@@ -12,8 +12,11 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
 using PaymentWeb.Data;
 using PaymentWeb.Data.Entity;
+using PaymentWeb.Services;
+using PaymentWeb.Services.Interfaces;
 
 namespace PaymentWeb
 {
@@ -37,7 +40,12 @@ namespace PaymentWeb
             });
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(options => {
+                    var resolver = options.SerializerSettings.ContractResolver;
+                    if (resolver != null)
+                        (resolver as DefaultContractResolver).NamingStrategy = null;
+                });
 
 
             #region Payment Database Settings
@@ -99,6 +107,12 @@ namespace PaymentWeb
             });
             #endregion
 
+
+            #region Payment
+
+            services.AddScoped<IPaymentService, PaymentService>();
+
+            #endregion
 
         }
 
