@@ -16,7 +16,7 @@ namespace PaymentWeb.Api
     {
         private readonly IPaymentService _paymentService;
 
-        public PaymentDetailsController(PaymentDbContext _context)
+        public PaymentDetailsController(IPaymentService _paymentService)
         {
             this._paymentService = _paymentService;
         }

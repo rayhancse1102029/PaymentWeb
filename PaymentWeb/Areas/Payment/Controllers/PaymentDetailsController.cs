@@ -10,6 +10,7 @@ using PaymentWeb.Services.Interfaces;
 
 namespace PaymentWeb.Areas.Payment.Controllers
 {
+    [Area("Payment")]
     public class PaymentDetailsController : Controller
     {
         private readonly IPaymentService _paymentService;
