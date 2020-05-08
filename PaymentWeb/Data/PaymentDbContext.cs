@@ -62,9 +62,7 @@ namespace PaymentWeb.Data
                 }
 
             }
-        }
-
-        public DbSet<PaymentWeb.Data.Entity.PaymentDetail> PaymentDetail { get; set; }
+        }       
         #endregion
 
     }
